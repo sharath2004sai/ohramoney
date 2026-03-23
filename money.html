@@ -1,0 +1,2834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OHRA MONEY | Premium Banking & Financial Solutions Hyderabad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Updated: Dark Blue Color */
+        .dark-blue-gradient {
+            background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+        }
+        
+        /* Updated: Green Color */
+        .green-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.95) 0%, rgba(26, 54, 93, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, #25d366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+        
+        .loan-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            border: none;
+            position: relative;
+            background: white;
+            cursor: pointer;
+        }
+        
+        /* Updated: Green and Dark Blue Gradient */
+        .loan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0a2540, #10b981);
+            z-index: 1;
+        }
+        
+        .loan-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(10, 37, 64, 0.2);
+        }
+        
+        .loan-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-section {
+            background: linear-gradient(135deg, #0a192f 0%, #0a2540 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #10b981;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 25px;
+            position: relative;
+            animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .rate-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(10, 37, 64, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Updated: Green and Dark Blue Gradient */
+        .rate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0a2540, #10b981);
+        }
+        
+        .rate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(10, 37, 64, 0.15);
+        }
+        
+        .stats-counter {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0a2540, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(255, 255, 255, 0.2));
+            color: #0a2540;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .trust-badge i {
+            margin-right: 10px;
+            color: #10b981;
+            font-size: 18px;
+        }
+        
+        /* Updated: Dark Blue Button */
+        .btn-primary {
+            background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(10, 37, 64, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.4);
+            background: linear-gradient(135deg, #1a365d 0%, #0a2540 100%);
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+        
+        /* Updated: Green Button */
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(10, 37, 64, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(10, 37, 64, 0.15);
+        }
+        
+        /* Updated: Green and Dark Blue Gradient */
+        .feature-card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #0a2540, #10b981);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 35px;
+            color: white;
+        }
+        
+        /* Updated: Green and Dark Blue Marquee */
+        .marquee-banner {
+            background: linear-gradient(90deg, #0a2540, #10b981, #0a2540);
+            color: white;
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            margin: 20px;
+            transition: all 0.4s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(10, 37, 64, 0.15);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 120px;
+            color: #10b981;
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(10, 37, 64, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        /* Updated: Green and Dark Blue Progress Bar */
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0a2540, #10b981);
+            border-radius: 4px;
+            width: 0;
+            transition: width 2s ease-in-out;
+        }
+        
+        .admin-login {
+            background: linear-gradient(135deg, #0a192f 0%, #0a2540 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-card {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+        }
+        
+        .logo-animation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            perspective: 1000px;
+        }
+        
+        .animated-logo {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: logoFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+            25% { transform: translateY(-20px) rotateX(10deg) rotateY(10deg); }
+            50% { transform: translateY(0) rotateX(0) rotateY(20deg); }
+            75% { transform: translateY(-10px) rotateX(-10deg) rotateY(-10deg); }
+        }
+        
+        .logo-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            animation: ringPulse 4s linear infinite;
+        }
+        
+        .logo-ring:nth-child(1) {
+            border-color: #0a2540;
+            animation-delay: 0s;
+        }
+        
+        .logo-ring:nth-child(2) {
+            border-color: #10b981;
+            animation-delay: 1s;
+        }
+        
+        .logo-ring:nth-child(3) {
+            border-color: #0a2540;
+            animation-delay: 2s;
+        }
+        
+        @keyframes ringPulse {
+            0% { transform: scale(0.5); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.5); opacity: 0.5; }
+        }
+        
+        .logo-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0a2540, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
+        }
+        
+        .logo-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .logo-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #0a2540, #10b981);
+            border-radius: 50%;
+            animation: logoParticle 3s linear infinite;
+        }
+        
+        @keyframes logoParticle {
+            0% { transform: translate(0, 0) scale(0); opacity: 0; }
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; }
+            100% { 
+                transform: 
+                    translate(
+                        calc(var(--tx) * 100px),
+                        calc(var(--ty) * 100px)
+                    ) 
+                    scale(0); 
+                opacity: 0; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 30px;
+            }
+            
+            .stats-counter {
+                font-size: 36px;
+            }
+            
+            .animated-logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .logo-text {
+                font-size: 22px;
+            }
+        }
+        
+        .about-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e6f2ff 100%);
+        }
+        
+        .about-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Updated: Green and Dark Blue Gradient */
+        .about-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0a2540, #10b981);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .loan-detail-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(10, 37, 64, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .loan-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.15);
+        }
+        
+        /* Updated: Green Color Class */
+        .green-color {
+            color: #10b981;
+        }
+        
+        .dark-blue-color {
+            color: #0a2540;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .animate-slideUp {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .animate-bounce-slow {
+            animation: bounce-slow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Animated Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/918309800653?text=Hi%20OHRA%20MONEY%2C%20I'm%20interested%20in%20your%20loan%20services" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Animated Trust Banner -->
+    <div class="marquee-banner">
+        <div class="marquee-content">
+            <div class="flex items-center space-x-8 mx-4">
+                <i class="fas fa-shield-alt"></i>
+                <span class="font-bold">RBI Compliant | Secure Banking</span>
+            </div>
+            <div class="flex items-center space-x-8 mx-4">
+                <i class="fas fa-check-circle"></i>
+                <span class="font-bold">40+ Banking Partners</span>
+            </div>
+            <div class="flex items-center space-x-8 mx-4">
+                <i class="fas fa-bolt"></i>
+                <span class="font-bold">Same Day Approval*</span>
+            </div>
+            <div class="flex items-center space-x-8 mx-4">
+                <i class="fas fa-star"></i>
+                <span class="font-bold">Trusted by 10,000+ Customers</span>
+            </div>
+            <div class="flex items-center space-x-8 mx-4">
+                <i class="fas fa-rupee-sign"></i>
+                <span class="font-bold">Lowest Interest Rates</span>
+            </div>
+            <div class="flex items-center space-x-8 mx-4">
+                <i class="fas fa-award"></i>
+                <span class="font-bold">Hyderabad's No. 1 Loan Provider</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Navigation -->
+    <!-- Updated: Dark Blue Navigation with OHRA in green, MONEY in white, ₹ in yellow -->
+    <nav class="sticky top-0 z-50 dark-blue-gradient shadow-2xl">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo - Clickable to Home -->
+                <a href="#" onclick="scrollToTop()" class="flex items-center space-x-3 cursor-pointer">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                        <!-- Updated: Dark Blue Logo with Yellow ₹ -->
+                        <div class="w-10 h-10 dark-blue-gradient rounded-lg flex items-center justify-center">
+                            <span class="text-yellow-400 font-bold text-xl">₹</span>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Updated: OHRA in green, MONEY in white -->
+                        <h1 class="text-2xl font-bold tracking-tight">
+                            <span class="text-green-500">OHRA</span><span class="text-white">MONEY</span>
+                        </h1>
+                        <p class="text-xs text-blue-200">Premium Financial Services</p>
+                    </div>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#" onclick="scrollToTop()" class="text-white hover:text-green-300 font-medium transition-colors duration-300">Home</a>
+                    <a href="#rates" class="text-white hover:text-green-300 font-medium transition-colors duration-300">Rates</a>
+                    <a href="#services" class="text-white hover:text-green-300 font-medium transition-colors duration-300">Services</a>
+                    <a href="#about" class="text-white hover:text-green-300 font-medium transition-colors duration-300">About Us</a>
+                    <a href="#form" class="btn-secondary">Apply Now <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-white text-2xl" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden mt-4 hidden bg-white rounded-xl shadow-2xl p-6">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" onclick="scrollToTop(); toggleMenu();" class="text-gray-800 hover:text-green-700 font-medium py-2">Home</a>
+                    <a href="#rates" onclick="toggleMenu()" class="text-gray-800 hover:text-green-700 font-medium py-2">Interest Rates</a>
+                    <a href="#services" onclick="toggleMenu()" class="text-gray-800 hover:text-green-700 font-medium py-2">Services</a>
+                    <a href="#about" onclick="toggleMenu()" class="text-gray-800 hover:text-green-700 font-medium py-2">About Us</a>
+                    <a href="#form" onclick="toggleMenu()" class="btn-primary text-center">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <section id="home" class="hero-gradient text-white section-padding relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fadeIn">
+                    <div class="trust-badge animate-pulse">
+                        <i class="fas fa-crown"></i>
+                        Premium Banking Partner Since 2014
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-slideUp">
+                        Your Gateway to <span class="green-color">Financial Freedom</span>
+                    </h1>
+                    
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        Experience banking reimagined. OHRA Money connects you with India's top 40+ banks and NBFCs, 
+                        offering premium loan solutions with unmatched speed, transparency, and personalized service.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="#form" class="btn-primary animate-bounce-slow">
+                            <i class="fas fa-rocket mr-3"></i> Instant Approval
+                        </a>
+                        <a href="tel:+918309800653" class="btn-secondary">
+                            <i class="fas fa-phone mr-3"></i> Call: 83098 00653
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                        <div class="text-center">
+                            <div class="stats-counter" data-count="40">0</div>
+                            <p class="text-blue-200 text-sm uppercase tracking-wider">Banking Partners</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter" data-count="10000">0</div>
+                            <p class="text-blue-200 text-sm uppercase tracking-wider">Happy Customers</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter" data-count="500">0</div>
+                            <p class="text-blue-200 text-sm uppercase tracking-wider">Crores Disbursed</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter" data-count="24">0</div>
+                            <p class="text-blue-200 text-sm uppercase tracking-wider">Hour Approval</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Animated OHRA MONEY Logo -->
+                <div class="logo-animation-container">
+                    <div class="animated-logo">
+                        <div class="logo-ring"></div>
+                        <div class="logo-ring"></div>
+                        <div class="logo-ring"></div>
+                        <div class="logo-particles" id="logoParticles"></div>
+                        <div class="logo-text">OHRA MONEY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#rates" class="text-white text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Interest Rates Section -->
+    <section id="rates" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <!-- Updated: Green Badge -->
+                <div class="inline-block green-gradient text-white px-6 py-2 rounded-full font-bold mb-4">
+                    <i class="fas fa-percentage mr-2"></i> Competitive Rates
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Industry's <span class="dark-blue-color">Lowest Interest Rates</span>
+                </h2>
+                <p class="text-gray-600 text-xl max-w-3xl mx-auto">
+                    Get the best rates from our extensive network of banking partners. Compare and choose!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <!-- Updated: Rate Cards with Green and Dark Blue -->
+                <div class="rate-card">
+                    <div class="flex items-center mb-6">
+                        <div class="loan-icon" style="background: linear-gradient(135deg, #0a2540, #2d4a7c);">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Home Loan</h3>
+                    <p class="text-3xl font-bold dark-blue-color mb-4">8.40%*</p>
+                    <p class="text-gray-600 mb-6">Own your dream home with our flexible home loan solutions</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div>
+                    </div>
+                    <p class="text-sm text-gray-500">Approval Rate: 85%</p>
+                </div>
+                
+                <div class="rate-card">
+                    <div class="flex items-center mb-6">
+                        <div class="loan-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Personal Loan</h3>
+                    <p class="text-3xl font-bold dark-blue-color mb-4">10.50%*</p>
+                    <p class="text-gray-600 mb-6">Instant funds for all your personal needs and emergencies</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="92"></div>
+                    </div>
+                    <p class="text-sm text-gray-500">Approval Rate: 92%</p>
+                </div>
+                
+                <div class="rate-card">
+                    <div class="flex items-center mb-6">
+                        <div class="loan-icon" style="background: linear-gradient(135deg, #0a2540, #10b981);">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Business Loan</h3>
+                    <p class="text-3xl font-bold dark-blue-color mb-4">13.00%*</p>
+                    <p class="text-gray-600 mb-6">Fuel your business growth with customized loan solutions</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="78"></div>
+                    </div>
+                    <p class="text-sm text-gray-500">Approval Rate: 78%</p>
+                </div>
+                
+                <div class="rate-card">
+                    <div class="flex items-center mb-6">
+                        <div class="loan-icon" style="background: linear-gradient(135deg, #2d4a7c, #10b981);">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Professional Loan</h3>
+                    <p class="text-3xl font-bold dark-blue-color mb-4">9.99%*</p>
+                    <p class="text-gray-600 mb-6">Exclusive rates for Doctors, CAs, Architects & Professionals</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="88"></div>
+                    </div>
+                    <p class="text-sm text-gray-500">Approval Rate: 88%</p>
+                </div>
+                
+                <div class="rate-card">
+                    <div class="flex items-center mb-6">
+                        <div class="loan-icon" style="background: linear-gradient(135deg, #0a2540, #2d4a7c);">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Education Loan</h3>
+                    <p class="text-3xl font-bold dark-blue-color mb-4">9.50%*</p>
+                    <p class="text-gray-600 mb-6">Invest in your future with our education loan programs</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="90"></div>
+                    </div>
+                    <p class="text-sm text-gray-500">Approval Rate: 90%</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-gray-500 text-sm">*Rates are subject to change. Contact us for personalized quotes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <!-- Updated: Green Badge -->
+                <div class="inline-block green-gradient text-white px-6 py-2 rounded-full font-bold mb-4">
+                    <i class="fas fa-star mr-2"></i> Why Choose Us
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Premium <span class="dark-blue-color">Banking Experience</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Same Day Approval</h3>
+                    <p class="text-gray-600">Get loan approval within 24 hours with minimal documentation</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">RBI Compliant</h3>
+                    <p class="text-gray-600">100% secure and regulated banking processes for your safety</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">40+ Banking Partners</h3>
+                    <p class="text-gray-600">Access to India's top banks and NBFCs for best rates</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Dedicated Support</h3>
+                    <p class="text-gray-600">Personal relationship manager for end-to-end assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Services Section with Loan Eligibility Calculator -->
+    <section id="services" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <!-- Updated: Green Badge -->
+                <div class="inline-block green-gradient text-white px-6 py-2 rounded-full font-bold mb-4">
+                    <i class="fas fa-hand-holding-usd mr-2"></i> Our Services
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Comprehensive <span class="dark-blue-color">Financial Solutions</span>
+                </h2>
+                <p class="text-gray-600 text-xl max-w-3xl mx-auto">
+                    Tailored loan products designed to meet your specific financial goals
+                </p>
+            </div>
+            
+            <!-- Loan Eligibility Calculator -->
+            <!-- Updated: Green and Dark Blue Calculator -->
+            <div class="mb-16 bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl p-8 border border-green-100">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Loan Eligibility Calculator</h3>
+                        <p class="text-gray-600 mb-6">Find out how much loan you're eligible for in just 30 seconds</p>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-3">Loan Amount Needed</label>
+                                <input type="range" min="100000" max="10000000" value="500000" class="w-full" id="loanAmountSlider">
+                                <div class="flex justify-between text-gray-600 text-sm mt-2">
+                                    <span>₹1 Lakh</span>
+                                    <span id="loanAmountValue" class="text-xl font-bold dark-blue-color">₹5,00,000</span>
+                                    <span>₹1 Crore</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-3">Monthly Income</label>
+                                <input type="range" min="25000" max="500000" value="75000" class="w-full" id="incomeSlider">
+                                <div class="flex justify-between text-gray-600 text-sm mt-2">
+                                    <span>₹25K</span>
+                                    <span id="incomeValue" class="text-xl font-bold dark-blue-color">₹75,000</span>
+                                    <span>₹5 Lakh</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-3">Loan Tenure</label>
+                                <div class="flex space-x-2">
+                                    <button class="flex-1 py-3 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors tenure-btn" data-years="1">1 Year</button>
+                                    <button class="flex-1 py-3 bg-green-600 text-white font-bold rounded-lg tenure-btn active" data-years="3">3 Years</button>
+                                    <button class="flex-1 py-3 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors tenure-btn" data-years="5">5 Years</button>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-6 border-t border-gray-200">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-gray-700 font-medium">Estimated EMI</span>
+                                    <span id="emiValue" class="text-3xl font-bold dark-blue-color">₹18,500</span>
+                                </div>
+                                <a href="#form" class="btn-primary w-full text-center">
+                                    Check Eligibility <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden lg:block">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Quick Eligibility Guide</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">Age 21-65 Years</p>
+                                        <p class="text-sm text-gray-600">Most loan products</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">CIBIL Score 650+</p>
+                                        <p class="text-sm text-gray-600">For best interest rates</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">Income ₹25,000+</p>
+                                        <p class="text-sm text-gray-600">Minimum monthly income</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">Documentation</p>
+                                        <p class="text-sm text-gray-600">PAN, Aadhaar & Income proof</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Personal Loan -->
+                <!-- Updated: Green and Dark Blue Cards -->
+                <div class="loan-card" onclick="showLoanDetails('personal')">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Personal Loan" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            10.5% Rate
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-green-700 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Personal Loan</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Instant funds for weddings, travel, medical needs or any personal requirement</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">Max Amount</p>
+                                <p class="font-bold dark-blue-color">₹25 Lakhs</p>
+                            </div>
+                            <span class="dark-blue-color font-bold">
+                                View Details <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Loan -->
+                <div class="loan-card" onclick="showLoanDetails('business')">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Business Loan" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            13.0% Rate
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-briefcase text-blue-700 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Business Loan</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Working capital, expansion, equipment financing for your business growth</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">Max Amount</p>
+                                <p class="font-bold dark-blue-color">₹2 Crores</p>
+                            </div>
+                            <span class="dark-blue-color font-bold">
+                                View Details <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Professional Loan -->
+                <div class="loan-card" onclick="showLoanDetails('professional')">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1627161683077-e34782c24d81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Professional Loan" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            9.99% Rate
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-user-md text-green-700 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Professional Loan</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Specialized financing for Doctors, CAs, Architects, and Company Secretaries</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">Max Amount</p>
+                                <p class="font-bold dark-blue-color">₹75 Lakhs</p>
+                            </div>
+                            <span class="dark-blue-color font-bold">
+                                View Details <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Home Loan -->
+                <div class="loan-card" onclick="showLoanDetails('home')">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Home Loan" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            8.4% Rate
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-home text-blue-700 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Home Loan</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Purchase, construct, or renovate your dream home with flexible tenure</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">Max Amount</p>
+                                <p class="font-bold dark-blue-color">₹5 Crores</p>
+                            </div>
+                            <span class="dark-blue-color font-bold">
+                                View Details <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Services Button -->
+            <div class="text-center mt-12">
+                <button onclick="showAllServices()" class="btn-primary">
+                    <i class="fas fa-eye mr-3"></i> View All 8 Loan Services
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section id="form" class="form-section section-padding relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <!-- Updated: Green Badge -->
+                <div class="inline-block green-gradient text-white px-6 py-2 rounded-full font-bold mb-4">
+                    <i class="fas fa-file-signature mr-2"></i> Quick Application
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Apply in <span class="green-color">3 Minutes</span>
+                </h2>
+                <p class="text-gray-300 text-xl max-w-3xl mx-auto">
+                    Get instant eligibility check across 40+ banks. No hidden charges, 100% transparent process.
+                </p>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 max-w-5xl mx-auto">
+                <form id="loanApplicationForm" onsubmit="submitApplication(event)">
+                    <div id="formSuccess" class="hidden mb-6 p-6 bg-green-900/30 border border-green-500/30 rounded-xl">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-green-400 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-1">Application Submitted!</h3>
+                                <p class="text-green-200">Our relationship manager will call you within 30 minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="formError" class="hidden mb-6 p-6 bg-red-900/30 border border-red-500/30 rounded-xl">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-exclamation-triangle text-red-400 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-1">Submission Error</h3>
+                                <p class="text-red-200" id="errorMessage">Please try again or call us directly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div>
+                            <label class="block text-white mb-3 font-medium">
+                                <i class="fas fa-user mr-2"></i> Full Name *
+                            </label>
+                            <input type="text" name="fullName" class="form-input" placeholder="Rahul Sharma" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white mb-3 font-medium">
+                                <i class="fas fa-phone mr-2"></i> Mobile Number *
+                            </label>
+                            <input type="tel" name="phone" class="form-input" placeholder="+91 9876543210" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white mb-3 font-medium">
+                                <i class="fas fa-envelope mr-2"></i> Email Address *
+                            </label>
+                            <input type="email" name="email" class="form-input" placeholder="name@example.com" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white mb-3 font-medium">
+                                <i class="fas fa-rupee-sign mr-2"></i> Loan Amount *
+                            </label>
+                            <input type="number" name="loanAmount" class="form-input" placeholder="500000" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white mb-3 font-medium">
+                                <i class="fas fa-briefcase mr-2"></i> Loan Type *
+                            </label>
+                            <select name="loanType" class="form-input" required>
+                                <option value="">Select Loan Type</option>
+                                <option value="Personal Loan">Personal Loan</option>
+                                <option value="Home Loan">Home Loan</option>
+                                <option value="Business Loan">Business Loan</option>
+                                <option value="Professional Loan">Professional Loan</option>
+                                <option value="Education Loan">Education Loan</option>
+                                <option value="Doctor Loan">Doctor Loan</option>
+                                <option value="Machinery Loan">Machinery Loan</option>
+                                <option value="Loan Against Property">Loan Against Property</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white mb-3 font-medium">
+                                <i class="fas fa-money-bill-wave mr-2"></i> Monthly Income *
+                            </label>
+                            <input type="number" name="monthlyIncome" class="form-input" placeholder="75000" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Fields Toggle -->
+                    <div class="mb-8">
+                        <button type="button" onclick="toggleAdvancedFields()" class="text-white hover:text-green-300 mb-4">
+                            <i class="fas fa-plus-circle mr-2"></i> Additional Details
+                        </button>
+                        
+                        <div id="advancedFields" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-white mb-3 font-medium">PAN Number</label>
+                                <input type="text" name="panNumber" class="form-input" placeholder="ABCDE1234F">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white mb-3 font-medium">Date of Birth</label>
+                                <input type="date" name="dob" class="form-input">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white mb-3 font-medium">Employment Type</label>
+                                <select name="employmentType" class="form-input">
+                                    <option value="">Select Type</option>
+                                    <option value="Salaried">Salaried</option>
+                                    <option value="Self Employed">Self Employed</option>
+                                    <option value="Business Owner">Business Owner</option>
+                                    <option value="Professional">Professional</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white mb-3 font-medium">City</label>
+                                <input type="text" name="city" class="form-input" placeholder="Hyderabad">
+                            </div>
+                            <div>
+                                <label class="block text-white mb-3 font-medium">Pincode</label>
+                            <input type="text" name="pincode" class="form-input" placeholder="500001">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white mb-3 font-medium">Existing EMI</label>
+                                <input type="number" name="existingEMI" class="form-input" placeholder="0">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white mb-3 font-medium">Tenure Required</label>
+                                <select name="tenure" class="form-input">
+                                    <option value="">Select Tenure</option>
+                                    <option value="1 Year">1 Year</option>
+                                    <option value="3 Years">3 Years</option>
+                                    <option value="5 Years">5 Years</option>
+                                    <option value="10 Years">10 Years</option>
+                                    <option value="15+ Years">15+ Years</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms and Submit -->
+                    <div class="border-t border-white/10 pt-8">
+                        <div class="flex items-start mb-6">
+                            <input type="checkbox" id="consent" class="mt-1 mr-3" required>
+                            <label for="consent" class="text-gray-300 text-sm">
+                                I authorize OHRA MONEY to check my CIBIL score & share details with partner banks. 
+                                I agree to the <a href="#" class="text-green-300 hover:underline">Terms & Conditions</a>.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="btn-primary w-full md:w-1/2 mx-auto block">
+                            <span id="submitText">
+                                <i class="fas fa-paper-plane mr-3"></i> Get Instant Eligibility
+                            </span>
+                            <span id="submitSpinner" class="hidden">
+                                <i class="fas fa-spinner fa-spin mr-3"></i> Processing...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <!-- Updated: Green Badge -->
+                <div class="inline-block green-gradient text-white px-6 py-2 rounded-full font-bold mb-4">
+                    <i class="fas fa-info-circle mr-2"></i> About Us
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Your Trusted <span class="dark-blue-color">Financial Partner</span>
+                </h2>
+                <p class="text-gray-600 text-xl max-w-3xl mx-auto">
+                    Established in 2014, OHRA MONEY has been revolutionizing the lending industry with transparent, 
+                    customer-centric financial solutions.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Our Story & Mission</h3>
+                    <p class="text-gray-600 mb-6">
+                        Founded with a vision to simplify banking and make financial services accessible to everyone, 
+                        OHRA MONEY has grown to become Hyderabad's most trusted loan provider. With over 10 years 
+                        of industry experience, we've helped more than 10,000 customers achieve their financial dreams.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Our mission is to bridge the gap between borrowers and lenders by providing seamless, 
+                        transparent, and efficient loan processing services. We believe in building long-term 
+                        relationships based on trust, transparency, and exceptional service.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="about-feature">
+                            <div class="about-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Our Vision</h4>
+                                <p class="text-gray-600">To be India's most trusted financial services partner</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <div class="about-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Our Values</h4>
+                                <p class="text-gray-600">Trust, Transparency, Customer First, Innovation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <div class="about-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Our Achievements</h4>
+                                <p class="text-gray-600">10,000+ Happy Customers • 40+ Banking Partners • ₹500+ Crores Disbursed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-3xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Why Choose OHRA MONEY?</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">RBI Compliant & Secure</h4>
+                                    <p class="text-gray-600">All our processes are 100% compliant with RBI regulations</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-bolt text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">Fastest Processing</h4>
+                                    <p class="text-gray-600">Loan approvals within 24 hours with minimal documentation</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-percentage text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">Lowest Interest Rates</h4>
+                                    <p class="text-gray-600">Best rates from our network of 40+ banking partners</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-headset text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">Dedicated Support</h4>
+                                    <p class="text-gray-600">Personal relationship manager for end-to-end assistance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loan Details Section -->
+            <div class="mt-16">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Detailed Loan Information</h3>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Complete information about all our loan products</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="loan-detail-card">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-user text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Personal Loan</h4>
+                        <p class="text-gray-600 mb-4">Quick funds for emergencies, weddings, travel, or medical needs</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Amount:</span>
+                                <span class="font-bold dark-blue-color">₹25 Lakhs</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Rate:</span>
+                                <span class="font-bold dark-blue-color">10.5% - 16%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Tenure:</span>
+                                <span class="font-bold dark-blue-color">1-5 Years</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-detail-card">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-briefcase text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Business Loan</h4>
+                        <p class="text-gray-600 mb-4">Working capital, expansion, equipment financing for business growth</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Amount:</span>
+                                <span class="font-bold dark-blue-color">₹2 Crores</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Rate:</span>
+                                <span class="font-bold dark-blue-color">13% - 18%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Tenure:</span>
+                                <span class="font-bold dark-blue-color">1-7 Years</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-detail-card">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-user-md text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Professional Loan</h4>
+                        <p class="text-gray-600 mb-4">Specialized financing for Doctors, CAs, Architects & Professionals</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Amount:</span>
+                                <span class="font-bold dark-blue-color">₹75 Lakhs</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Rate:</span>
+                                <span class="font-bold dark-blue-color">9.99% - 14%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Tenure:</span>
+                                <span class="font-bold dark-blue-color">1-5 Years</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-detail-card">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-home text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Home Loan</h4>
+                        <p class="text-gray-600 mb-4">Purchase, construct, or renovate your dream home</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Amount:</span>
+                                <span class="font-bold dark-blue-color">₹5 Crores</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Rate:</span>
+                                <span class="font-bold dark-blue-color">8.4% - 9.5%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Tenure:</span>
+                                <span class="font-bold dark-blue-color">Up to 30 Years</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Updated: Dark Blue Footer -->
+    <footer class="dark-blue-gradient text-white pt-16 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-green-800 pb-16">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                            <div class="w-10 h-10 dark-blue-gradient rounded-lg flex items-center justify-center">
+                                <span class="text-yellow-400 font-bold text-xl">₹</span>
+                            </div>
+                        </div>
+                        <div class="text-2xl font-bold">
+                            <span class="text-green-500">OHRA</span><span class="text-white">MONEY</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Your trusted partner for premium banking solutions since 2014. 
+                        Experience banking excellence with personalized service.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/ohramoney/" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white-800 rounded-full flex items-center justify-center hover:bg-black-700">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ohramoney/" target="_blank" class="w-10 h-10 bg-pink-800 rounded-full flex items-center justify-center hover:bg-pink-700">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://in.linkedin.com/company/ohramoney" target="_blank" class="w-10 h-10 bg-blue on solid white-800 rounded-full flex items-center justify-center hover:bg-blue on solid white-700">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" onclick="scrollToTop()" class="text-gray-300 hover:text-green-300 transition-colors">Home</a></li>
+                        <li><a href="#rates" class="text-gray-300 hover:text-green-300 transition-colors">Interest Rates</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-green-300 transition-colors">Loan Services</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-green-300 transition-colors">About Us</a></li>
+                        <li><a href="#form" class="text-gray-300 hover:text-green-300 transition-colors">Apply Now</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-green-300 mt-1"></i>
+                            <span>Hyderabad, Telangana 500032</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-green-300"></i>
+                            <a href="tel:+918309800653" class="hover:text-green-300">+91 83098 00653</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-green-300"></i>
+                            <a href="mailto:pogusaisharath@gmail.com" class="hover:text-green-300">pogusaisharath@gmail.com</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-green-300"></i>
+                            <span>Mon-Sat: 9:30 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Office Hours -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Business Hours</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex justify-between">
+                            <span>Monday - Friday</span>
+                            <span class="font-medium">9:30 AM - 7:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span class="font-medium">9:30 AM - 3:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span class="font-medium">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+                <p>© 2024 OHRA MONEY Financial Services. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">
+                    <a href="#" class="hover:text-green-300 mr-4">Privacy Policy</a>
+                    <a href="#" class="hover:text-green-300">Terms & Conditions</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loan Details Modal -->
+    <div id="loanModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="p-8">
+                <div id="modalContent">
+                    <!-- Content loaded dynamically -->
+                </div>
+                <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Access (Hidden) -->
+    <div class="fixed bottom-20 left-4">
+        <button onclick="showAdminLogin()" class="bg-gray-800 text-white p-2 rounded-lg text-xs opacity-50 hover:opacity-100">
+            <i class="fas fa-lock mr-1"></i> Admin
+        </button>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal-overlay" style="display: none;">
+        <div class="login-card">
+            <div class="text-center mb-8">
+                <div class="w-20 h-20 dark-blue-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-lock text-white text-3xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900">Admin Access</h2>
+                <p class="text-gray-600 mt-2">Enter password to view submissions</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div>
+                    <input type="password" id="adminPassword" placeholder="Enter password" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                </div>
+                <button onclick="loginAdmin()" class="btn-primary w-full">Login</button>
+                <button onclick="hideAdminLogin()" class="text-gray-600 hover:text-gray-800 w-full">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-login" style="display: none;">
+        <div class="w-full max-w-6xl">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-white">Admin Dashboard</h1>
+                    <p class="text-gray-300" id="submissionCount">Total Submissions: 0</p>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="exportToExcel()" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                        <i class="fas fa-file-excel mr-2"></i> Export
+                    </button>
+                    <button onclick="clearAllSubmissions()" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
+                        <i class="fas fa-trash mr-2"></i> Clear All
+                    </button>
+                    <button onclick="logoutAdmin()" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <table class="w-full">
+                    <thead class="dark-blue-gradient text-white">
+                        <tr>
+                            <th class="p-4 text-left">Date & Time</th>
+                            <th class="p-4 text-left">Name</th>
+                            <th class="p-4 text-left">Phone</th>
+                            <th class="p-4 text-left">Email</th>
+                            <th class="p-4 text-left">Loan Type</th>
+                            <th class="p-4 text-left">Amount</th>
+                            <th class="p-4 text-left">Income</th>
+                            <th class="p-4 text-left">City</th>
+                            <th class="p-4 text-left">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="submissionsTable" class="divide-y divide-gray-200">
+                        <!-- Data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== CONFIGURATION ====================
+        const GOOGLE_SCRIPT_URL = "httphttps://script.google.com/macros/s/AKfycbyAeEwGF30PfLt9OOM_P0qbZvkByxw2yrzNvjjWU0lW6tEFH8FFDpA38hBmXWtyU3q7/execs://script.google.com/macros/s/AKfycbz2zTfQ_aLDujHpmPtBQ0EEsD2sgHObmGVInxb0DqmyTYrlZ69GNPYhoQzUDW66sli6QQ/exec";
+        const EMAILJS_SERVICE_ID = "YOUR_EMAILJS_SERVICE_ID";
+        const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
+        const EMAILJS_USER_ID = "pogusaisharath@gmail.com";
+        const ADMIN_PASSWORD = "admin2024";
+        
+        // ==================== EMAILJS INIT ====================
+        (function() {
+            if (EMAILJS_USER_ID && EMAILJS_USER_ID !== "pogusaisharath@gmail.com") {
+                emailjs.init(EMAILJS_USER_ID);
+            }
+        })();
+        
+        // ==================== LOAN DATA ====================
+        const loanData = {
+            personal: {
+                title: "Personal Loan",
+                description: "Get instant funds for all your personal needs without collateral.",
+                features: [
+                    "Loan Amount: ₹50,000 to ₹25 Lakhs",
+                    "Interest Rate: 10.5% - 16% p.a.",
+                    "Tenure: 1 to 5 years",
+                    "Processing Time: 24-48 hours",
+                    "Processing Fee: 1-2% of loan amount",
+                    "No collateral required",
+                    "Flexible repayment options",
+                    "Balance transfer facility"
+                ],
+                eligibility: [
+                    "Age: 21 - 60 years",
+                    "Monthly Income: ₹25,000+",
+                    "Employment: Salaried (1+ year) or Self-employed (2+ years)",
+                    "CIBIL Score: 650+",
+                    "Work Experience: Minimum 1 year",
+                    "Residential Status: Indian citizen"
+                ],
+                documents: [
+                    "PAN Card & Aadhaar Card",
+                    "Address Proof (Passport/Driving License/Utility Bill)",
+                    "3 months salary slips",
+                    "6 months bank statements",
+                    "2 passport size photos",
+                    "Employment proof (Appointment letter/Employee ID)"
+                ],
+                benefits: [
+                    "Instant approval within 24 hours",
+                    "No security or collateral required",
+                    "Flexible tenure from 1 to 5 years",
+                    "Competitive interest rates",
+                    "Minimal documentation",
+                    "Top-up loan facility available"
+                ]
+            },
+            business: {
+                title: "Business Loan",
+                description: "Fuel your business growth with customized financing solutions.",
+                features: [
+                    "Loan Amount: ₹5 Lakhs to ₹2 Crores",
+                    "Interest Rate: 13% - 18% p.a.",
+                    "Tenure: 1 to 7 years",
+                    "Collateral: Optional for loans below ₹50 Lakhs",
+                    "Moratorium: Up to 6 months available",
+                    "Processing Time: 3-7 working days",
+                    "Overdraft facility available"
+                ],
+                eligibility: [
+                    "Business Vintage: 2+ years",
+                    "Annual Turnover: ₹40 Lakhs+",
+                    "ITR Filed: Last 2 years",
+                    "Business Location: Registered office",
+                    "Business Type: Proprietorship/Partnership/Pvt Ltd",
+                    "CIBIL Score: 700+ for best rates"
+                ],
+                documents: [
+                    "Business Registration Certificate",
+                    "GST Registration Certificate",
+                    "2 years ITR with computation",
+                    "12 months bank statements",
+                    "Business address proof",
+                    "Partnership Deed/MOA & AOA",
+                    "Business PAN Card"
+                ],
+                benefits: [
+                    "Collateral-free loans up to ₹50 Lakhs",
+                    "Flexible repayment options",
+                    "Quick disbursement within 72 hours",
+                    "Working capital support",
+                    "Business expansion financing",
+                    "Equipment purchase loans"
+                ]
+            },
+            professional: {
+                title: "Professional Loan",
+                description: "Specialized financing for qualified professionals.",
+                features: [
+                    "Loan Amount: ₹10 Lakhs to ₹75 Lakhs",
+                    "Interest Rate: 9.99% - 14% p.a.",
+                    "Tenure: 1 to 5 years",
+                    "Special Rates: For Doctors, CAs, Architects",
+                    "Quick Processing: 48 hours approval",
+                    "Top-up Facility: Available after 12 months",
+                    "Processing Fee: 1% of loan amount"
+                ],
+                eligibility: [
+                    "Professional Qualification: MBBS/CA/CS/Architect/Engineer",
+                    "Practice Experience: 3+ years",
+                    "CIBIL Score: 700+",
+                    "Clinic/Office: Owned or rented",
+                    "Age: 25 - 65 years",
+                    "Annual Income: ₹8 Lakhs+"
+                ],
+                documents: [
+                    "Professional Degree Certificate",
+                    "Practice Registration Certificate",
+                    "2 years ITR with computation",
+                    "Office ownership/rental proof",
+                    "Bank statements (12 months)",
+                    "Clinic/Office establishment proof",
+                    "PAN Card & Aadhaar Card"
+                ],
+                benefits: [
+                    "Special interest rates for professionals",
+                    "Higher loan amounts",
+                    "Quick processing and approval",
+                    "Flexible repayment tenure",
+                    "No collateral for smaller amounts",
+                    "Balance transfer facility"
+                ]
+            },
+            home: {
+                title: "Home Loan",
+                description: "Realize your dream of owning a home with our flexible plans.",
+                features: [
+                    "Loan Amount: ₹10 Lakhs to ₹5 Crores",
+                    "Interest Rate: 8.4% - 9.5% p.a.",
+                    "Tenure: Up to 30 years",
+                    "LTV Ratio: Up to 90%",
+                    "Balance Transfer: Available",
+                    "Top-up Loan: Available after 1 year",
+                    "Pre-payment: No charges after 1 year"
+                ],
+                eligibility: [
+                    "Age: 21 - 65 years",
+                    "Income: Stable source with documentation",
+                    "Property: Must be approved by bank",
+                    "CIBIL Score: 700+",
+                    "Employment: Salaried (2+ years) or Self-employed (3+ years)",
+                    "Residency: Indian citizen"
+                ],
+                documents: [
+                    "Property documents (sale deed, agreement)",
+                    "Construction plan approval from authorities",
+                    "Income proof (salary slips/ITR for 3 years)",
+                    "KYC documents (PAN, Aadhaar, Passport)",
+                    "Bank statements (6 months)",
+                    "Property valuation report",
+                    "Builder NOC if applicable"
+                ],
+                benefits: [
+                    "Lowest interest rates in market",
+                    "Long repayment tenure up to 30 years",
+                    "Balance transfer from other banks",
+                    "Top-up loan for renovation",
+                    "Flexible EMI options",
+                    "Online account management"
+                ]
+            },
+            education: {
+                title: "Education Loan",
+                description: "Finance your education dreams in India and abroad with flexible repayment.",
+                features: [
+                    "Loan Amount: ₹5 Lakhs to ₹1.5 Crores",
+                    "Interest Rate: 9.5% - 12% p.a.",
+                    "Tenure: Up to 15 years",
+                    "Moratorium Period: Course period + 1 year",
+                    "Processing Time: 5-7 working days",
+                    "Processing Fee: 0.5-1% of loan amount",
+                    "No collateral for loans up to ₹7.5 Lakhs"
+                ],
+                eligibility: [
+                    "Student Age: 18 - 35 years",
+                    "Co-applicant Required: Parent/Guardian",
+                    "Course: Recognized institutions in India/abroad",
+                    "Admission: Secured admission to recognized course",
+                    "CIBIL Score: 650+ (co-applicant)",
+                    "Academic Record: Good academic performance"
+                ],
+                documents: [
+                    "Admission letter from institution",
+                    "Course fee structure",
+                    "Mark sheets of previous qualifications",
+                    "Co-applicant income proof",
+                    "KYC documents of student and co-applicant",
+                    "Academic certificates",
+                    "Passport (for abroad studies)"
+                ],
+                benefits: [
+                    "No collateral for loans up to ₹7.5 Lakhs",
+                    "Moratorium period during study",
+                    "Tax benefits under Section 80E",
+                    "Simple interest during moratorium",
+                    "Doorstep service available",
+                    "Fast processing"
+                ]
+            },
+            doctor: {
+                title: "Doctor Loan",
+                description: "Exclusive financing for medical equipment and clinic setup.",
+                features: [
+                    "Loan Amount: ₹10 Lakhs to ₹1 Crore",
+                    "Interest Rate: 11% - 15% p.a.",
+                    "Tenure: 1 to 7 years",
+                    "Special Rates: For MBBS/MD/MS Doctors",
+                    "Processing Time: 72 hours",
+                    "Processing Fee: 1% of loan amount",
+                    "Top-up Facility: Available"
+                ],
+                eligibility: [
+                    "Qualification: MBBS/MD/MS/DNB",
+                    "Practice Experience: 2+ years",
+                    "Clinic/OPD: Established practice",
+                    "Age: 25 - 60 years",
+                    "Annual Income: ₹10 Lakhs+",
+                    "CIBIL Score: 700+"
+                ],
+                documents: [
+                    "Medical Degree Certificate",
+                    "Medical Council Registration",
+                    "Clinic establishment proof",
+                    "2 years ITR with computation",
+                    "Bank statements (12 months)",
+                    "Equipment quotation (if applicable)",
+                    "PAN Card & Aadhaar Card"
+                ],
+                benefits: [
+                    "Special rates for medical professionals",
+                    "High loan amounts for equipment",
+                    "Quick processing within 72 hours",
+                    "Flexible repayment tenure",
+                    "Clinic renovation financing",
+                    "Balance transfer from other banks"
+                ]
+            },
+            machinery: {
+                title: "Machinery Loan",
+                description: "Modernize your business with new machinery financing.",
+                features: [
+                    "Loan Amount: ₹5 Lakhs to ₹3 Crores",
+                    "Interest Rate: 12% - 16% p.a.",
+                    "Tenure: 3 to 7 years",
+                    "Moratorium: 3-6 months available",
+                    "Processing Time: 7-10 working days",
+                    "Processing Fee: 1-2% of loan amount",
+                    "Equipment as collateral"
+                ],
+                eligibility: [
+                    "Business Vintage: 3+ years",
+                    "Annual Turnover: ₹50 Lakhs+",
+                    "ITR Filed: Last 3 years",
+                    "Machinery: New or used (not older than 5 years)",
+                    "Business Stability: Profitable operations",
+                    "CIBIL Score: 650+"
+                ],
+                documents: [
+                    "Business Registration documents",
+                    "3 years ITR with computation",
+                    "Bank statements (12 months)",
+                    "Machinery quotation/proforma invoice",
+                    "Business address proof",
+                    "Business plan and projections",
+                    "Existing machinery details"
+                ],
+                benefits: [
+                    "Financing up to 85% of machinery cost",
+                    "Moratorium period available",
+                    "Competitive interest rates",
+                    "Quick processing",
+                    "Technical appraisal assistance",
+                    "Insurance guidance"
+                ]
+            },
+            property: {
+                title: "Loan Against Property",
+                description: "Unlock the value of your property for business or personal needs.",
+                features: [
+                    "Loan Amount: ₹10 Lakhs to ₹10 Crores",
+                    "Interest Rate: 10% - 14% p.a.",
+                    "Tenure: Up to 20 years",
+                    "LTV Ratio: Up to 70%",
+                    "Processing Time: 10-15 working days",
+                    "Processing Fee: 1-2% of loan amount",
+                    "Balance Transfer: Available"
+                ],
+                eligibility: [
+                    "Property Type: Residential/Commercial",
+                    "Property Age: Not older than 30 years",
+                    "Property Title: Clear and marketable",
+                    "Age: 21 - 65 years",
+                    "Income: Stable source with documentation",
+                    "CIBIL Score: 700+"
+                ],
+                documents: [
+                    "Property documents (Title deed, Sale deed)",
+                    "Property tax receipts",
+                    "Income proof (salary slips/ITR for 3 years)",
+                    "Bank statements (6 months)",
+                    "Property valuation report",
+                    "Encumbrance certificate",
+                    "KYC documents"
+                ],
+                benefits: [
+                    "High loan amounts up to ₹10 Crores",
+                    "Long repayment tenure up to 20 years",
+                    "Lower interest rates",
+                    "Multiple end-use options",
+                    "Flexible repayment options",
+                    "Balance transfer facility"
+                ]
+            }
+        };
+
+        // ==================== UTILITY FUNCTIONS ====================
+        function formatIndianCurrency(amount) {
+            return '₹' + parseInt(amount).toLocaleString('en-IN');
+        }
+
+        function formatPhoneNumber(phone) {
+            const cleaned = phone.replace(/\D/g, '');
+            if (cleaned.length === 10) {
+                return '+91 ' + cleaned.replace(/(\d{5})(\d{5})/, '$1 $2');
+            }
+            return phone;
+        }
+
+        // ==================== GOOGLE SHEETS SUBMISSION ====================
+        async function submitToGoogleSheets(data) {
+            try {
+                // Prepare data for Google Sheets
+                const submissionData = {
+                    timestamp: new Date().toISOString(),
+                    fullName: data.fullName || '',
+                    phone: data.phone || '',
+                    email: data.email || '',
+                    loanAmount: data.loanAmount || '',
+                    loanType: data.loanType || '',
+                    monthlyIncome: data.monthlyIncome || '',
+                    panNumber: data.panNumber || '',
+                    dob: data.dob || '',
+                    employmentType: data.employmentType || '',
+                    city: data.city || '',
+                    pincode: data.pincode || '',
+                    existingEMI: data.existingEMI || '',
+                    tenure: data.tenure || '',
+                    source: 'OHRA Money Website',
+                    status: 'New'
+                };
+
+                // Send to Google Sheets
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submissionData)
+                });
+
+                // Also save to localStorage for admin panel
+                saveToLocalStorage(submissionData);
+                
+                // Send email notification
+                await sendEmailNotification(submissionData);
+                
+                // Send WhatsApp notification
+                sendWhatsAppNotification(submissionData);
+
+                return { success: true, message: "Application submitted successfully!" };
+
+            } catch (error) {
+                console.error("Error submitting to Google Sheets:", error);
+                // Fallback to localStorage only
+                try {
+                    const submissionData = {
+                        timestamp: new Date().toISOString(),
+                        ...data,
+                        source: 'OHRA Money Website',
+                        status: 'New (Local Storage)'
+                    };
+                    saveToLocalStorage(submissionData);
+                    return { success: true, message: "Application saved locally!" };
+                } catch (fallbackError) {
+                    return { success: false, message: "Error saving application. Please try again." };
+                }
+            }
+        }
+
+        function saveToLocalStorage(data) {
+            try {
+                const submissions = JSON.parse(localStorage.getItem('ohraMoneySubmissions') || '[]');
+                submissions.push({
+                    id: Date.now(),
+                    ...data
+                });
+                localStorage.setItem('ohraMoneySubmissions', JSON.stringify(submissions));
+                return true;
+            } catch (error) {
+                console.error("Error saving to localStorage:", error);
+                return false;
+            }
+        }
+
+        async function sendEmailNotification(data) {
+            try {
+                if (!EMAILJS_SERVICE_ID || EMAILJS_SERVICE_ID === "YOUR_EMAILJS_SERVICE_ID") {
+                    return; // EmailJS not configured
+                }
+
+                const emailData = {
+                    to_email: "pogusaisharath@gmail.com",
+                    to_name: "OHRA Money Admin",
+                    from_name: data.fullName,
+                    phone: formatPhoneNumber(data.phone),
+                    email: data.email,
+                    loan_type: data.loanType,
+                    loan_amount: formatIndianCurrency(data.loanAmount),
+                    monthly_income: formatIndianCurrency(data.monthlyIncome),
+                    city: data.city || 'Not provided',
+                    pan_number: data.panNumber || 'Not provided',
+                    timestamp: new Date().toLocaleString('en-IN', { 
+                        timeZone: 'Asia/Kolkata',
+                        dateStyle: 'full',
+                        timeStyle: 'medium'
+                    }),
+                    source: data.source || 'OHRA Money Website'
+                };
+
+                await emailjs.send(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    emailData
+                );
+
+                console.log("Email notification sent successfully");
+
+            } catch (emailError) {
+                console.log("Email notification failed (optional):", emailError);
+            }
+        }
+
+        function sendWhatsAppNotification(data) {
+            try {
+                const whatsappMessage = `New Loan Application:\n\n` +
+                    `Name: ${data.fullName}\n` +
+                    `Phone: ${formatPhoneNumber(data.phone)}\n` +
+                    `Email: ${data.email}\n` +
+                    `Loan Type: ${data.loanType}\n` +
+                    `Amount: ${formatIndianCurrency(data.loanAmount)}\n` +
+                    `Monthly Income: ${formatIndianCurrency(data.monthlyIncome)}\n` +
+                    `City: ${data.city || 'Not provided'}\n` +
+                    `Time: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}\n\n` +
+                    `Please follow up within 30 minutes.`;
+
+                // Create WhatsApp URL (will be opened manually by admin)
+                const whatsappUrl = `https://wa.me/918309800653?text=${encodeURIComponent(whatsappMessage)}`;
+                
+                // Store the URL for admin to use
+                localStorage.setItem('lastWhatsAppNotification', whatsappUrl);
+                
+                console.log("WhatsApp notification prepared:", whatsappUrl);
+
+            } catch (error) {
+                console.error("Error preparing WhatsApp notification:", error);
+            }
+        }
+
+        // ==================== FORM HANDLING ====================
+        async function submitApplication(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+            
+            // Reset messages
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+            
+            // Show loading
+            submitText.classList.add('hidden');
+            submitSpinner.classList.remove('hidden');
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Validate required fields
+            if (!data.fullName || !data.phone || !data.email || !data.loanAmount || !data.loanType || !data.monthlyIncome) {
+                showError("Please fill all required fields");
+                resetSubmitButton(submitBtn, submitText, submitSpinner);
+                return;
+            }
+            
+            // Validate phone number
+            const phoneRegex = /^[6-9]\d{9}$/;
+            const cleanPhone = data.phone.replace(/\D/g, '');
+            if (!phoneRegex.test(cleanPhone)) {
+                showError("Please enter a valid 10-digit Indian mobile number");
+                resetSubmitButton(submitBtn, submitText, submitSpinner);
+                return;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showError("Please enter a valid email address");
+                resetSubmitButton(submitBtn, submitText, submitSpinner);
+                return;
+            }
+            
+            try {
+                // Submit to Google Sheets
+                const result = await submitToGoogleSheets(data);
+                
+                if (result.success) {
+                    // Show success message
+                    formSuccess.classList.remove('hidden');
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Scroll to success message
+                    formSuccess.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset button state after delay
+                    setTimeout(() => {
+                        resetSubmitButton(submitBtn, submitText, submitSpinner);
+                    }, 1000);
+                    
+                    // Hide success message after 10 seconds
+                    setTimeout(() => {
+                        formSuccess.classList.add('hidden');
+                    }, 10000);
+                    
+                } else {
+                    showError(result.message);
+                    resetSubmitButton(submitBtn, submitText, submitSpinner);
+                }
+                
+            } catch (error) {
+                showError("Network error. Please try again or call us directly at 83098 00653.");
+                resetSubmitButton(submitBtn, submitText, submitSpinner);
+            }
+        }
+
+        function showError(message) {
+            const formError = document.getElementById('formError');
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            formError.classList.remove('hidden');
+            formError.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetSubmitButton(button, text, spinner) {
+            text.classList.remove('hidden');
+            spinner.classList.add('hidden');
+            button.disabled = false;
+        }
+
+        // ==================== UI FUNCTIONS ====================
+        function showLoanDetails(loanType) {
+            const data = loanData[loanType];
+            if (!data) {
+                alert('Loan details not available at the moment. Please try again later.');
+                return;
+            }
+            
+            const modal = document.getElementById('loanModal');
+            const content = document.getElementById('modalContent');
+            
+            content.innerHTML = `
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">${data.title}</h2>
+                    <p class="text-xl text-gray-600 mb-8">${data.description}</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-star text-green-500 mr-3"></i> Key Features
+                            </h4>
+                            <ul class="space-y-3">
+                                ${data.features.map(feature => `
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="text-gray-700">${feature}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-file-alt text-blue-500 mr-3"></i> Documents Required
+                            </h4>
+                            <ul class="space-y-3">
+                                ${data.documents.map(doc => `
+                                    <li class="flex items-start">
+                                        <i class="fas fa-file text-gray-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-700">${doc}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-green-50 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-clipboard-check text-green-500 mr-3"></i> Eligibility Criteria
+                            </h4>
+                            <ul class="space-y-3">
+                                ${data.eligibility.map(item => `
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span class="text-gray-700">${item}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Key Benefits</h4>
+                            <ul class="space-y-3 mb-6">
+                                ${data.benefits.map(benefit => `
+                                    <li class="flex items-start">
+                                        <i class="fas fa-gift text-purple-500 mt-1 mr-3"></i>
+                                        <span class="text-gray-700">${benefit}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                            <a href="#form" onclick="closeModal()" class="btn-primary w-full text-center">
+                                Apply Now <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showAllServices() {
+            const services = [
+                { name: "Personal Loan", rate: "10.5%", amount: "₹25 Lakhs", key: "personal" },
+                { name: "Business Loan", rate: "13.0%", amount: "₹2 Crores", key: "business" },
+                { name: "Professional Loan", rate: "9.99%", amount: "₹75 Lakhs", key: "professional" },
+                { name: "Home Loan", rate: "8.4%", amount: "₹5 Crores", key: "home" },
+                { name: "Education Loan", rate: "9.5%", amount: "₹1.5 Crores", key: "education" },
+                { name: "Doctor Loan", rate: "11.0%", amount: "₹1 Crore", key: "doctor" },
+                { name: "Machinery Loan", rate: "12.0%", amount: "₹3 Crores", key: "machinery" },
+                { name: "Loan Against Property", rate: "10.0%", amount: "₹10 Crores", key: "property" }
+            ];
+            
+            const modal = document.getElementById('loanModal');
+            const content = document.getElementById('modalContent');
+            
+            content.innerHTML = `
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">All 8 Loan Services</h2>
+                    <p class="text-xl text-gray-600">Complete range of financial solutions for every need</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    ${services.map(service => `
+                        <div class="loan-card cursor-pointer" onclick="showLoanDetails('${service.key}')">
+                            <div class="relative overflow-hidden">
+                                <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                    ${service.rate} Rate
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-${service.key === 'personal' ? 'user' : 
+                                                         service.key === 'business' ? 'briefcase' :
+                                                         service.key === 'professional' ? 'user-md' :
+                                                         service.key === 'home' ? 'home' :
+                                                         service.key === 'education' ? 'graduation-cap' :
+                                                         service.key === 'doctor' ? 'stethoscope' :
+                                                         service.key === 'machinery' ? 'cogs' : 'home'} 
+                                                text-green-700 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900">${service.name}</h3>
+                                </div>
+                                <p class="text-gray-600 mb-6">${loanData[service.key].description}</p>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-gray-500">Max Amount</p>
+                                        <p class="font-bold dark-blue-color">${service.amount}</p>
+                                    </div>
+                                    <span class="dark-blue-color font-bold">
+                                        View Details <i class="fas fa-arrow-right ml-2"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="text-center">
+                    <a href="#form" onclick="closeModal()" class="btn-primary">
+                        <i class="fas fa-rocket mr-3"></i> Apply Now
+                    </a>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('loanModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // ==================== ANIMATIONS ====================
+        function initParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.width = `${Math.random() * 4 + 2}px`;
+                particle.style.height = particle.style.width;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function initLogoParticles() {
+            const logoParticles = document.getElementById('logoParticles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'logo-particle';
+                particle.style.setProperty('--tx', (Math.random() - 0.5) * 2);
+                particle.style.setProperty('--ty', (Math.random() - 0.5) * 2);
+                particle.style.left = '50%';
+                particle.style.top = '50%';
+                particle.style.animationDelay = `${Math.random() * 3}s`;
+                logoParticles.appendChild(particle);
+            }
+        }
+
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        if (current >= target) {
+                            counter.textContent = target.toLocaleString();
+                        } else {
+                            setTimeout(updateCounter, 50);
+                        }
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = `${width}%`;
+                }, 500);
+            });
+        }
+
+        function initLoanCalculator() {
+            const loanSlider = document.getElementById('loanAmountSlider');
+            const incomeSlider = document.getElementById('incomeSlider');
+            const loanValue = document.getElementById('loanAmountValue');
+            const incomeValue = document.getElementById('incomeValue');
+            const emiValue = document.getElementById('emiValue');
+            const tenureButtons = document.querySelectorAll('.tenure-btn');
+            
+            let currentTenure = 3;
+            
+            function calculateEMI() {
+                const loanAmount = parseInt(loanSlider.value);
+                const monthlyIncome = parseInt(incomeSlider.value);
+                
+                loanValue.textContent = formatIndianCurrency(loanAmount);
+                incomeValue.textContent = formatIndianCurrency(monthlyIncome);
+                
+                const rate = 0.105 / 12;
+                const tenureMonths = currentTenure * 12;
+                const emi = loanAmount * rate * Math.pow(1 + rate, tenureMonths) / (Math.pow(1 + rate, tenureMonths) - 1);
+                
+                emiValue.textContent = formatIndianCurrency(Math.round(emi));
+            }
+            
+            tenureButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tenureButtons.forEach(b => {
+                        b.classList.remove('active', 'bg-green-600', 'text-white');
+                        b.classList.add('bg-blue-100');
+                    });
+                    
+                    this.classList.add('active', 'bg-green-600', 'text-white');
+                    this.classList.remove('bg-blue-100');
+                    
+                    currentTenure = parseInt(this.getAttribute('data-years'));
+                    calculateEMI();
+                });
+            });
+            
+            loanSlider.addEventListener('input', calculateEMI);
+            incomeSlider.addEventListener('input', calculateEMI);
+            
+            calculateEMI();
+        }
+
+        // ==================== ADMIN FUNCTIONS ====================
+        function showAdminLogin() {
+            document.getElementById('adminLoginModal').style.display = 'block';
+        }
+
+        function hideAdminLogin() {
+            document.getElementById('adminLoginModal').style.display = 'none';
+        }
+
+        function loginAdmin() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === ADMIN_PASSWORD) {
+                document.querySelectorAll('body > *:not(#adminPanel):not(#adminLoginModal)').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                document.getElementById('adminPanel').style.display = 'block';
+                document.getElementById('adminLoginModal').style.display = 'none';
+                
+                loadAdminSubmissions();
+            } else {
+                alert('Incorrect password');
+            }
+        }
+
+        function logoutAdmin() {
+            document.querySelectorAll('body > *:not(#adminPanel):not(#adminLoginModal)').forEach(el => {
+                el.style.display = '';
+            });
+            
+            document.getElementById('adminPanel').style.display = 'none';
+        }
+
+        function loadAdminSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('ohraMoneySubmissions') || '[]');
+            const tableBody = document.getElementById('submissionsTable');
+            const countElement = document.getElementById('submissionCount');
+            
+            countElement.textContent = `Total Submissions: ${submissions.length}`;
+            
+            if (submissions.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="9" class="p-8 text-center text-gray-500">
+                            <i class="fas fa-inbox text-4xl mb-4 block"></i>
+                            No submissions yet
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            tableBody.innerHTML = submissions.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)).map(sub => `
+                <tr class="hover:bg-gray-50">
+                    <td class="p-4">${new Date(sub.timestamp).toLocaleString('en-IN')}</td>
+                    <td class="p-4 font-medium">${sub.fullName || 'N/A'}</td>
+                    <td class="p-4">
+                        <a href="tel:${sub.phone}" class="text-blue-600 hover:text-blue-800">
+                            ${formatPhoneNumber(sub.phone || 'N/A')}
+                        </a>
+                    </td>
+                    <td class="p-4">
+                        <a href="mailto:${sub.email}" class="text-blue-600 hover:text-blue-800">
+                            ${sub.email || 'N/A'}
+                        </a>
+                    </td>
+                    <td class="p-4">
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+                            ${sub.loanType || 'N/A'}
+                        </span>
+                    </td>
+                    <td class="p-4 font-bold">
+                        ${formatIndianCurrency(sub.loanAmount || 0)}
+                    </td>
+                    <td class="p-4">
+                        ${formatIndianCurrency(sub.monthlyIncome || 0)}
+                    </td>
+                    <td class="p-4">
+                        ${sub.city || 'N/A'}
+                    </td>
+                    <td class="p-4">
+                        <span class="px-3 py-1 rounded-full text-sm ${sub.status === 'New' ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'}">
+                            ${sub.status || 'New'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function clearAllSubmissions() {
+            if (confirm('Are you sure you want to delete all submissions? This action cannot be undone.')) {
+                localStorage.removeItem('ohraMoneySubmissions');
+                loadAdminSubmissions();
+            }
+        }
+
+        function exportToExcel() {
+            const submissions = JSON.parse(localStorage.getItem('ohraMoneySubmissions') || '[]');
+            if (submissions.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            const headers = ['Timestamp', 'Name', 'Phone', 'Email', 'Loan Type', 'Loan Amount', 'Monthly Income', 'PAN', 'City', 'Employment Type', 'Tenure', 'Status'];
+            const csvContent = [
+                headers.join(','),
+                ...submissions.map(sub => [
+                    sub.timestamp,
+                    `"${sub.fullName || ''}"`,
+                    sub.phone || '',
+                    sub.email || '',
+                    sub.loanType || '',
+                    sub.loanAmount || '',
+                    sub.monthlyIncome || '',
+                    sub.panNumber || '',
+                    sub.city || '',
+                    sub.employmentType || '',
+                    sub.tenure || '',
+                    sub.status || ''
+                ].join(','))
+            ].join('\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ohra-money-submissions-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // ==================== UTILITY FUNCTIONS ====================
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleAdvancedFields() {
+            const fields = document.getElementById('advancedFields');
+            fields.classList.toggle('hidden');
+        }
+
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            initParticles();
+            initLogoParticles();
+            animateCounters();
+            animateProgressBars();
+            initLoanCalculator();
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        const mobileMenu = document.getElementById('mobileMenu');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+            
+            // Close modal with escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    hideAdminLogin();
+                }
+            });
+            
+            // Close modal when clicking outside
+            document.addEventListener('click', function(e) {
+                const modal = document.getElementById('loanModal');
+                if (e.target === modal) {
+                    closeModal();
+                }
+                
+                const adminModal = document.getElementById('adminLoginModal');
+                if (e.target === adminModal) {
+                    hideAdminLogin();
+                }
+            });
+            
+            // Auto-hide mobile menu on resize
+            window.addEventListener('resize', function() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (window.innerWidth >= 1024 && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
